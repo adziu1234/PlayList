@@ -2,7 +2,6 @@ import React from 'react';
 
 const GameCard = (info) => {
   const { title, release, rating, completion_time, completion_status, publisher, developer, art_link, genres, platform} = info.info;
-  console.log(info);
   console.log(info.info);
   return (
     <article className="card gameCard">
