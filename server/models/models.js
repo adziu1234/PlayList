@@ -5,7 +5,7 @@ const MONGO_URI = 'mongodb+srv://adziu1234:toffee123@cluster0.mpbkb0e.mongodb.ne
 mongoose.connect(MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  dbName: 'gamelibrary'
+  dbName: 'newgamelibrary'
 })
   .then(() => console.log('Connected to MongoDB.'))
   .catch(err => console.log(err));
@@ -21,19 +21,8 @@ const gameSchema = new Schema({
   publisher: String,
   developer: String,
   art_link: String,
-  genre: [
-    {
-      genre_name: String,
-      id: {type: Schema.Types.ObjectId, ref: 'genre'}
-    }
-  ],
-  platform: [
-    {
-      platform_name: String,
-      id: {type: Schema.Types.ObjectId, ref: 'platform'}
-    }
-  ]
-
+  genres: [{ type: String }],
+  platform: [{type: String}]
 });
 
 const Game = mongoose.model('game', gameSchema);
@@ -41,7 +30,6 @@ const Game = mongoose.model('game', gameSchema);
 
 const genreSchema = new Schema({
   title: String,
-  _v: Number
 })
 
 const Genre = mongoose.model('genre', genreSchema);
@@ -49,8 +37,7 @@ const Genre = mongoose.model('genre', genreSchema);
 const platformSchema = new Schema({
   name: String,
   manufacturer: String,
-  release: Date,
-  _v: Number
+  release: Date
 });
 
 const Platform = mongoose.model('platform', platformSchema);

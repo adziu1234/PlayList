@@ -8,6 +8,10 @@ router.get('/', gameController.getGames, (req, res) => {
   res.status(200).json(res.locals.gamesData);
 })
 
+router.post('/', gameController.addGame, (req, res) => {
+  res.status(200).json(res.locals.createdGame);
+})
+
 
 
 

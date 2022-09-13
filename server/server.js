@@ -4,6 +4,8 @@ const app = express();
 const path = require('path');
 
 const gameRouter = require('./routes/gameRouter');
+const models = require('./models/models');
+const mongoose = require('mongoose');
 
 
 
@@ -17,6 +19,35 @@ app.use(express.static(path.resolve(__dirname, '../src')));
 //routes
 
 app.use('/game', gameRouter);
+
+app.post('/genre/:genre', (req, res) => {
+  const title = req.params.genre;
+  models.Genre.create({
+    title: title
+  })
+  .then((doc) => {
+    res.status(200).json(doc);
+  })
+  .catch((err) => {
+    return err;
+  })
+})
+
+app.post('/platform/:manufacturer/:platform', (req, res) => {
+  const company = req.params.manufacturer;
+  const name = req.params.platform;
+  models.Platform.create({
+    name: name,
+    manufacturer: company,
+    release: null
+  })
+    .then((doc) => {
+      res.status(200).json(doc);
+    })
+    .catch((err) => {
+      return err;
+    })
+})
 
 
 

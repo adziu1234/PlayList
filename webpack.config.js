@@ -17,7 +17,7 @@ module.exports = {
     ],
     devServer: {
         proxy: {
-            '/game': 'http://localhost:3000'
+            '/': 'http://localhost:3000'
         }
     },
     module: {
