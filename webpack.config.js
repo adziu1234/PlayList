@@ -15,7 +15,11 @@ module.exports = {
             template: './src/index.html'
         })
     ],
-
+    devServer: {
+        proxy: {
+            '/game': 'http://localhost:3000'
+        }
+    },
     module: {
         rules: [
             {

@@ -5,7 +5,7 @@ const MONGO_URI = 'mongodb+srv://adziu1234:toffee123@cluster0.mpbkb0e.mongodb.ne
 mongoose.connect(MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  dbName: 'games'
+  dbName: 'gamelibrary'
 })
   .then(() => console.log('Connected to MongoDB.'))
   .catch(err => console.log(err));
