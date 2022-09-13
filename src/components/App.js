@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Switch, Route} from 'react-router-dom';
 
 class App extends Component {
 
@@ -13,4 +14,18 @@ class App extends Component {
 
 }
 
-export default App;
+export default function App() {
+    return (
+        <Router>
+            <div>
+                <nav>
+                    <ul>
+                        <li>
+                            
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </Router>
+    )
+}
