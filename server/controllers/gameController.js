@@ -13,7 +13,7 @@ gameController.getGames = (req, res, next) => {
     res.locals.gamesData = games;
     return next();
   });
-}
+};
 
 gameController.addGame = async (req, res, next) => {
   const { title, release, rating, completion_time, completion_status, publisher, developer, art_link, genres, platform } = req.body;
@@ -34,14 +34,14 @@ gameController.addGame = async (req, res, next) => {
     .then((doc) => {
       res.locals.createdGame = doc;
       console.log(doc);
-      return next()
+      return next();
     })
     .catch((err) => {
       return next({
         log: 'gameController.addGame ERROR',
         message: {log: 'gameController.addGame ERROR: addition to database failed'}
-      })
-    })
-}
+      });
+    });
+};
 
 module.exports = gameController;

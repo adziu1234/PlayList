@@ -3,36 +3,36 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
 
-    entry: './src/index.js',
+  entry: './src/index.js',
 
-    output: {
-        path: path.join(__dirname, '/dist'),
-        filename: 'bundle.js'
-    },
+  output: {
+    path: path.join(__dirname, '/dist'),
+    filename: 'bundle.js'
+  },
 
-    plugins: [
-        new HTMLWebpackPlugin({
-            template: './src/index.html'
-        })
-    ],
-    devServer: {
-        proxy: {
-            '/': 'http://localhost:3000'
-        }
-    },
-    module: {
-        rules: [
-            {
-              test: /\.js$/,
-                exclude: /node_modules/,
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ['@babel/preset-env', '@babel/preset-react']
-                        }
-                }
-            }
-        ]
+  plugins: [
+    new HTMLWebpackPlugin({
+      template: './src/index.html'
+    })
+  ],
+  devServer: {
+    proxy: {
+      '/': 'http://localhost:3000'
     }
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env', '@babel/preset-react']
+          }
+        }
+      }
+    ]
+  }
 
-}
+};

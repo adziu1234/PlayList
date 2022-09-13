@@ -22,7 +22,7 @@ const gameSchema = new Schema({
   developer: String,
   art_link: String,
   genres: [{ type: String }],
-  platform: [{type: String}]
+  platform: [{ type: String }]
 });
 
 const Game = mongoose.model('game', gameSchema);
@@ -30,7 +30,7 @@ const Game = mongoose.model('game', gameSchema);
 
 const genreSchema = new Schema({
   title: String,
-})
+});
 
 const Genre = mongoose.model('genre', genreSchema);
 
