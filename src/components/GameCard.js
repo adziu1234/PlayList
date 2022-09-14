@@ -2,7 +2,6 @@ import React from 'react';
 
 const GameCard = (info) => {
   const { title, release, rating, completion_time, completion_status, publisher, developer, art_link, genres, platform} = info.info;
-  console.log(info.info);
   return (
     <article className="card gameCard">
 
@@ -12,12 +11,12 @@ const GameCard = (info) => {
       <img src={art_link} width='100px'></img>
       <ul className= "gameDetailsList">
         <li>Completed: {completion_status}</li>
-        <li>Completion Time: {completion_time} Hours</li>
+        <li>Completion Time: {completion_time} hours</li>
         <li>Release Date: {release}</li>
         <li>Publisher: {publisher}</li>
         <li>Developer: {developer}</li>
-        <li>Genres: {genres}</li>
-        <li>Platforms: {platform}</li>
+        <li>Genres: {genres.join(', ')}</li>
+        <li>Platforms: {platform.join(', ')}</li>
         <li>Rating: {rating}</li>
       </ul>
     </article>

@@ -10,7 +10,7 @@ class GameContainer extends Component {
       games: [
         {
           title: 'Persona 5 Royal',
-          release: 'March 31 2020',
+          release: 'March 31, 2020',
           rating: 5,
           completion_time: 150,
           completion_status: true,
@@ -24,10 +24,30 @@ class GameContainer extends Component {
     };
   }
 
+  componentDidMount(){
+    fetch('/game/')
+      .then((res) => res.json())
+      .then((games) => {
+        if (!Array.isArray(games)) games = [];
+        return this.setState({
+          games
+        })
+      })
+  }
+
   render(){
     const { games } = this.state;
 
     const gameElems = games.map((game, i) => {
+      if (game.completion_status){
+        game.completion_status = '✔️';
+      } else {
+        game.completion_status = '❌';
+      }
+      let releaseDate = new Date(game.release);
+      releaseDate = releaseDate.toDateString().split(' ').slice(1).join(' ');
+      game.release = releaseDate;
+
       return (
         <GameCard
           key={i}
