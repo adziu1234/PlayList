@@ -50,7 +50,7 @@ class GameContainer extends Component {
           if (!Array.isArray(games)) games = [];
           return this.setState({
             games,
-            reloaded: true
+            reloaded: !this.state.reloaded
           });
         });
     } else if (window.location.pathname === '/' && this.state.reloaded === true){
@@ -60,7 +60,7 @@ class GameContainer extends Component {
           if (!Array.isArray(games)) games = [];
           return this.setState({
             games,
-            reloaded: false
+            reloaded: !this.state.reloaded
           });
         });
     }

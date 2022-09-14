@@ -18,7 +18,11 @@
       <label for="completion_time">Completion Time:</label><br>
       <input type="number" id="completion_time" name="completion_time"><br>
       <label for="completion_status">Completed:</label><br>
-      <input type="checkbox" id="completion_status" name="completion_status" required><br>
+      <input type="checkbox" id="completion_status" name="completion_status"><br>
+      <label for="publisher">Publisher:</label><br>
+      <input type="text" id="publisher" name="publisher"><br>
+      <label for="developer">Developer:</label><br>
+      <input type="text" id="developer" name="developer"><br>
       <label for="art_link">Link for game art:</label><br>
       <input type="url" id="art_link" name="art_link"><br>
       <label for="genres">Genres:</label><br>
@@ -42,9 +46,11 @@
           rating : parent[2].value,
           completion_time : parent[3].value,
           completion_status : parent[4].checked,
-          art_link : parent[5].value,
-          genres : parent[6].value.split(','),
-          platform: parent[7].value.split(','),
+          publisher: parent[5].value,
+          developer: parent[6].value,
+          art_link : parent[7].value,
+          genres : parent[8].value.split(','),
+          platform: parent[9].value.split(',')
         };
 
       fetch(url.srcElement.action, {

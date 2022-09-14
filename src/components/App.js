@@ -16,7 +16,7 @@ class App extends Component {
           <h2>Filter By:</h2>
           <Link to='/'>All</Link>
           <br></br>
-          <Link to={{pathname: '/sort', state: {reloaded: true}}}>Completion</Link>
+          <Link to={{pathname:'/sort'}}>Completion</Link>
 
           <Switch>
             <Route path='/sort'>

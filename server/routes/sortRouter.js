@@ -15,10 +15,6 @@ router.get('/completed', (req, res) => {
   res.status(200).sendFile(path.resolve(__dirname, '../../src/test.html'));
 });
 
-router.get('/', (req, res) => {
-  console.log('on /sort/ !');
-  res.status(200).sendFile(path.resolve(__dirname, '../../src/index.html'));
-});
 
 
 module.exports = router;
