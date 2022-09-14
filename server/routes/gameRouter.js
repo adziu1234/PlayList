@@ -6,11 +6,12 @@ const router = express.Router();
 
 const path = require('path');
 
-//get all games in user's database
+//get all games in user's database upon gamecontainer loading on home page
 router.get('/', gameController.getGames, (req, res) => {
   res.status(200).json(res.locals.gamesData);
 });
 
+//this serves the page to put in the new game's info
 router.get('/new_game', (req, res) => {
   res.status(200).sendFile(path.resolve(__dirname, '../../src/added_pages/new-game-input.html'));
 })
@@ -22,6 +23,11 @@ router.get('/new_game', (req, res) => {
 router.post('/post_game', gameController.addGame, (req, res) => {
   res.status(200).json(res.locals.createdGame);
 });
+
+//delete a game from the db
+router.delete('/delete/:title', gameController.deleteGame, (req, res) => {
+  res.status(200).json(res.locals.deletedGame);
+})
 
 
 

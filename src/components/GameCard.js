@@ -3,11 +3,23 @@ import React from 'react';
 const GameCard = (info) => {
   const { title, release, rating, completion_time, completion_status, publisher, developer, art_link, genres, platform} = info.info;
   let completion_icon;
+
+  async function deleter(e){
+    const target = await e;
+    const titleToDelete = target.target.parentNode.firstChild.innerText;
+    const body = await title;
+    fetch((`/game/delete/${titleToDelete}`), {
+      method: 'DELETE',
+      body: JSON.stringify(titleToDelete)
+    }).then(() => window.location.reload());
+  }
+
   if (completion_status){
     completion_icon = '✔️';
   } else {
     completion_icon = '❌';
   }
+
   return (
     <article className="card gameCard">
 
@@ -25,7 +37,9 @@ const GameCard = (info) => {
         <li>Platforms: {platform.join(', ')}</li>
         <li>Rating: {rating}</li>
       </ul>
+      <button onClick={deleter}>Delete Me</button>
     </article>
+
   );
 };
 

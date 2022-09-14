@@ -40,9 +40,28 @@ gameController.addGame = async (req, res, next) => {
     .catch((err) => {
       return next({
         log: 'gameController.addGame ERROR',
-        message: {log: 'gameController.addGame ERROR: addition to database failed'}
+        message: {err: 'gameController.addGame ERROR: addition to database failed'}
       });
     });
 };
+
+gameController.deleteGame = (req, res, next) => {
+  //console.log("req", req);
+  //console.log("param title", req.params.title);
+  const { title } = req.params;
+  models.Game.deleteOne({title: title})
+    .then((doc) => {
+      res.locals.deletedGame = doc;
+      console.log('delete game', doc);
+      return next();
+    })
+    .catch((err) => {
+      return next({
+        log: 'gameController.deleteGame ERROR',
+        message: {err: 'gameController.deleteGame ERROR: did not delete game successfully, or query not found'}
+      });
+    });
+};
+
 
 module.exports = gameController;
