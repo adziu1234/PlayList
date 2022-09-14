@@ -17,6 +17,7 @@ gameController.getGames = (req, res, next) => {
 
 gameController.addGame = async (req, res, next) => {
   const { title, release, rating, completion_time, completion_status, publisher, developer, art_link, genres, platform } = req.body;
+  console.log(req.body);
   
 
   models.Game.create({

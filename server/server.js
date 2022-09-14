@@ -4,6 +4,8 @@ const app = express();
 const path = require('path');
 
 const gameRouter = require('./routes/gameRouter');
+const sortRouter = require('./routes/sortRouter');
+
 const models = require('./models/models');
 const mongoose = require('mongoose');
 
@@ -19,6 +21,8 @@ app.use(express.static(path.resolve(__dirname, '../src')));
 //routes
 
 app.use('/game', gameRouter);
+
+app.use('/sort', sortRouter);
 
 app.post('/genre/:genre', (req, res) => {
   const title = req.params.genre;

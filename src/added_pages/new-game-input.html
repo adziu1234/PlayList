@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add A Game</title>
+</head>
+<body>
+  <div>
+    <form id="new_game_form" action="/game/post_game">
+      <label for="title">Title:</label><br>
+      <input type="text" id="title" name="title" required><br>
+      <label for="release">Release:</label><br>
+      <input type="text" id="release" name="release"><br>
+      <label for="rating">Rating:</label><br>
+      <input type="range" id="rating" name="rating" min="1" max="10" required><br>
+      <label for="completion_time">Completion Time:</label><br>
+      <input type="number" id="completion_time" name="completion_time"><br>
+      <label for="completion_status">Completed:</label><br>
+      <input type="checkbox" id="completion_status" name="completion_status" required><br>
+      <label for="art_link">Link for game art:</label><br>
+      <input type="url" id="art_link" name="art_link"><br>
+      <label for="genres">Genres:</label><br>
+      <input type="text" id="genres" name="genres"><br>
+      <label for="platform">Platforms:</label><br>
+      <input type="text" id="platform" name="platform"><br>
+      <button type="submit">Add Game to Library</button>
+    </form>
+  </div>
+  
+  <script>
+    const form = document.getElementById('new_game_form');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const url = await e;
+      console.log(url);
+      const parent = url.srcElement;
+        const bodyToSend = {
+          title : parent[0].value,
+          release : parent[1].value,
+          rating : parent[2].value,
+          completion_time : parent[3].value,
+          completion_status : parent[4].checked,
+          art_link : parent[5].value,
+          genres : parent[6].value.split(','),
+          platform: parent[7].value.split(','),
+        };
+
+      fetch(url.srcElement.action, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(bodyToSend)
+      }).then(data => data.json())
+      .then((data) => console.log(data));
+    })
+
+
+  </script>
+</body>
+</html>

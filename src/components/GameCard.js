@@ -2,6 +2,12 @@ import React from 'react';
 
 const GameCard = (info) => {
   const { title, release, rating, completion_time, completion_status, publisher, developer, art_link, genres, platform} = info.info;
+  let completion_icon;
+  if (completion_status){
+    completion_icon = '✔️';
+  } else {
+    completion_icon = '❌';
+  }
   return (
     <article className="card gameCard">
 
@@ -10,7 +16,7 @@ const GameCard = (info) => {
       </div>
       <img src={art_link} width='100px'></img>
       <ul className= "gameDetailsList">
-        <li>Completed: {completion_status}</li>
+        <li>Completed: {completion_icon}</li>
         <li>Completion Time: {completion_time} hours</li>
         <li>Release Date: {release}</li>
         <li>Publisher: {publisher}</li>
