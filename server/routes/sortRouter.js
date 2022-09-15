@@ -21,11 +21,11 @@ router.get('/switch', sortController.getSwitch, (req, res) => {
 
 router.get('/ps', sortController.getPS, (req, res) => {
   res.status(200).json(res.locals.psGamesData);
-})
+});
 
 router.get('/xbox', sortController.getXbox, (req, res) => {
   res.status(200).json(res.locals.xboxGamesData);
-})
+});
 
 
 module.exports = router;
