@@ -46,8 +46,8 @@ gameController.addGame = async (req, res, next) => {
 };
 
 gameController.deleteGame = (req, res, next) => {
-  console.log("req body", req.body);
-  console.log("param title", req.params.title);
+  console.log('req body', req.body);
+  console.log('param title', req.params.title);
   const { title } = req.params;
   const { release, rating, completion_time, completion_status, publisher, developer, art_link, genres, platform } = req.body;
   models.Game.deleteOne({title: title})

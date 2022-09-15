@@ -14,7 +14,7 @@ router.get('/', gameController.getGames, (req, res) => {
 //this serves the page to put in the new game's info
 router.get('/new_game', (req, res) => {
   res.status(200).sendFile(path.resolve(__dirname, '../../src/added_pages/new-game-input.html'));
-})
+});
 
 //get one game based on passed in param
 //router.get('/:title')
@@ -27,18 +27,18 @@ router.post('/post_game', gameController.addGame, (req, res) => {
 //delete a game from the db
 router.delete('/delete/:title', gameController.deleteGame, (req, res) => {
   res.status(200).json(res.locals.deletedGame);
-})
+});
 
 //access page to update a game's information in the db
 router.get('/update/:title', (req, res) => {
   console.log(req.params.title);
   res.status(200).sendFile(path.resolve(__dirname, '../../src/added_pages/new-game-input.html'));
-})
+});
 
 router.put('/update/:title', gameController.updateGame, (req, res) => {
   console.log(res.locals.updatedGame);
   res.status(200).json(res.locals.updatedGame);
-})
+});
 
 
 
