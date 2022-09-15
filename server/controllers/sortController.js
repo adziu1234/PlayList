@@ -16,7 +16,7 @@ sortController.getCompleted = (req, res, next) => {
 };
 
 sortController.getSwitch = (req, res, next) => {
-  models.Game.find({platform: {$in: ['Switch']}}, (err, games) => {
+  models.Game.find({platform: {$in: ['Switch', 'DS', '3DS', 'Wii U', 'Wii', 'GameCube', 'Game Boy Advance', 'Nintendo 64', 'SNES']}}, (err, games) => {
     if (err){
       return next({
         log: 'sortController.getSwitch ERROR',
