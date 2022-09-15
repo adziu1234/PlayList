@@ -25,6 +25,35 @@ class GameContainer extends Component {
           });
         });
     }
+    const keySequence = [];
+    let konamiString = '';
+    const konamiCode = [
+      'ArrowUp',
+      'ArrowUp',
+      'ArrowDown',
+      'ArrowDown',
+      'ArrowLeft',
+      'ArrowRight',
+      'ArrowLeft',
+      'ArrowRight',
+      'b',
+      'a'
+    ];
+    window.addEventListener('keyup', function(e) {
+      console.log(e.key);
+      keySequence.push(e.key);
+      keySequence.splice(
+        -konamiCode.length - 1, 
+        keySequence.length - konamiCode.length
+      );
+      console.log(keySequence);
+      konamiString = konamiCode.join('');
+    
+      if (keySequence.join('').includes(konamiString)) {
+        const music = new Audio('../shh/nggyu.mp3');
+        music.play();
+      }
+    });
   }
 
     
@@ -96,6 +125,7 @@ class GameContainer extends Component {
         </div>
       );
     });
+
     console.log(gameElems);
     return (
       <div className="gameContainer">
