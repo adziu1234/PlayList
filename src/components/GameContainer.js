@@ -52,6 +52,7 @@ class GameContainer extends Component {
       if (keySequence.join('').includes(konamiString)) {
         const music = new Audio('../shh/nggyu.mp3');
         music.play();
+        window.document.getElementById('container').style.backgroundImage = "url('../shh/never-gonna-give-you-up-clip.jpg')";
       }
     });
   }
