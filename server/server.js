@@ -71,6 +71,6 @@ app.use((err, req, res, next) => {
 });
 
 //start server on environment port passed in or 3000
-app.listen(PORT, () => console.log('Server is running...'));
+app.listen(PORT, () => console.log(`Server running on ${PORT}`));
 
 module.exports = app;
