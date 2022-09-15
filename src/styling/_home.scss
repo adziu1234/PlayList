@@ -9,45 +9,14 @@ body {
   background: linear-gradient(90deg, rgba(2,0,0.6, 1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%)
 }
 
-.bubbles {
-  position: relative;
-  display: flex;
-
-}
-
-.bubbles span {
-  z-index: -90;
-  position: relative;
-  width: 30px;
-  height: 30px;
-  background: #4fc3dc;
-  margin: 0 4px;
-  border-radius: 50%;
-  box-shadow: 0 0 0 10px #4fc3dc44,
-  0 0 50px #4fc3dc,
-  0 0 100px #4fc3dc;
-  animation: animate 15s linear infinite;
-}
-
-.bubbles span:nth-child(even){
-  background: #ff2d75;
-  box-shadow: 0 0 0 10px #ff2d7544,
-  0 0 50px #ff2d75,
-  0 0 100px #ff2d75;
-}
-
-@keyframes animate {
-  0% {
-    transform: translateY(100vh) scale(0);
-  }
-  100% {
-    transform: translateY(-10vh) scale(0);
-  }
-}
 
 .gameTitle {
   color: #fff;
   font-family: 'Play';
+}
+
+.imgBox img {
+  z-index: 20;
 }
 
 .gameHeadContainer {
@@ -145,24 +114,34 @@ body {
 .box div:nth-child(2){
   top: 70%; 
   left: 50%;
+  border-radius: 50%;
   animation: animate 7s linear infinite;
 }
 
 .box div:nth-child(3){
+  border: none;
+  background-size: 60px;
   top: 17%; 
   left: 6%;
   animation: animate 9s linear infinite;
 }
 
+svg patch{
+  fill: red;
+}
+
 .box div:nth-child(4){
   top: 20%; 
-  left: 60%;
+  left: 70%;
+  border: none;
   animation: animate 10s linear infinite;
 }
 
 .box div:nth-child(5){
   top: 67%; 
   left: 10%;
+  border-radius: 50%;
+  border-color: red;
   animation: animate 6s linear infinite;
 }
 
@@ -174,7 +153,7 @@ body {
 
 .box div:nth-child(7){
   top: 60%;
-  border-radius: 50%;
+  border-color: rgb(228, 88, 158);
   left: 90%;
   animation: animate 15s linear infinite;
 }
@@ -217,13 +196,13 @@ navbar {
   }
 
   h3 {
-    padding-top: 7px;
+    padding-top: 10px;
     z-index:11;
     font-family: 'Press Start 2P';
     color: white;
   }
   a {
-    padding-top: 7px;
+    padding-top: 10px;
     z-index: 11;
     color: white;
     font-family: 'Press Start 2P'
@@ -239,5 +218,23 @@ navbar {
     a {
       margin: 0 10px;
     }
+    h3 {
+
+    }
+  }
+}
+
+
+footer {
+  background: rgba(255,255,255, 0.05);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  font-family: 'Play';
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+
+  a {
+    color: rgba(255,255,255,0.8);
   }
 }
