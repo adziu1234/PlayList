@@ -37,6 +37,7 @@ router.get('/update/:title', (req, res) => {
 
 router.put('/update/:title', gameController.updateGame, (req, res) => {
   console.log(res.locals.updatedGame);
+  res.status(200).json(res.locals.updatedGame);
 })
 
 

@@ -9,12 +9,6 @@ body {
   background: linear-gradient(90deg, rgba(2,0,0.6, 1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%)
 }
 
-h1 {
-  color: #fff;
-  font-family: 'Press Start 2P', cursive;
-}
-
-
 .bubbles {
   position: relative;
   display: flex;
@@ -179,7 +173,8 @@ h1 {
 }
 
 .box div:nth-child(7){
-  top: 60%; 
+  top: 60%;
+  border-radius: 50%;
   left: 90%;
   animation: animate 15s linear infinite;
 }
@@ -207,4 +202,42 @@ h1 {
   padding-top: 3px;
   background-color: rgba(255,255,255, 0.3);
   box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  z-index: 11;
+
+  h1 {
+    color: #fff;
+    font-family: 'Press Start 2P', cursive;
+    padding: 7px;
+  }
+
+  h3 {
+    padding-top: 7px;
+    z-index:11;
+    font-family: 'Press Start 2P';
+    color: white;
+  }
+  a {
+    padding-top: 7px;
+    z-index: 11;
+    color: white;
+    font-family: 'Press Start 2P'
+  }
+  .addButton {
+    position: relative;
+    left: 85px;
+  }
+  .filters {
+    float: right;
+    z-index: 11;
+    display: flex;
+    a {
+      margin: 0 10px;
+    }
+  }
 }

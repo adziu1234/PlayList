@@ -11,12 +11,16 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
+          <navbar>
           <h1>PlayList</h1>
-          <a href='/game/new_game'>Add Game to Library</a>
-          <h2>Filter By:</h2>
-          <Link to='/'>All</Link>
-          <br></br>
-          <Link to={{pathname:'/sort'}}>Completion</Link>
+          <a href='/game/new_game' className="addButton">Add Game to Library</a>
+          <div className="filters">
+          <h3>Filter By:</h3>
+            <Link to='/'>All</Link>
+            <br></br>
+            <Link to={{pathname:'/sort'}}>Completion</Link>
+          </div>
+          </navbar>
           <div className='container'>
             <div className="box">
               <div></div>
