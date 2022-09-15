@@ -71,6 +71,6 @@ app.use((err, req, res, next) => {
 });
 
 //start server on environment port passed in or 3000
-app.listen(process.env.PORT || 3000, () => console.log('Server is running...'));
+app.listen(process.env.PORT || 3030, () => console.log('Server is running...'));
 
 module.exports = app;

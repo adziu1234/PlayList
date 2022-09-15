@@ -14,6 +14,12 @@ const GameCard = (info) => {
     }).then(() => window.location.reload());
   }
 
+  async function updater(e){
+    const target = await e;
+    const titleToUpdate = target.target.parentNode.firstChild.innerText;
+    window.location.href = '/game/update/' + titleToUpdate;
+  }
+
   if (completion_status){
     completion_icon = '✔️';
   } else {
@@ -37,6 +43,7 @@ const GameCard = (info) => {
         <li>Platforms: {platform.join(', ')}</li>
         <li>Rating: {rating}</li>
       </ul>
+      <button onClick={updater}>Update Me</button>
       <button onClick={deleter}>Delete Me</button>
     </article>
 

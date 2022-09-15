@@ -1,7 +1,7 @@
 {
-  "name": "solo-project",
-  "version": "1.0.0",
-  "description": "",
+  "name": "PlayList",
+  "version": "0.5.5",
+  "description": "A library to hold your whole gaming library and manage your backlog",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --mode development --open --hot",

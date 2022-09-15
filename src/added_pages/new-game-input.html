@@ -8,9 +8,9 @@
 </head>
 <body>
   <div>
-    <form id="new_game_form" action="/game/post_game">
+    <form id="new_game_form">
       <label for="title">Title:</label><br>
-      <input type="text" id="title" name="title" required><br>
+      <input type="text" id="title" name="title" val ="" required><br>
       <label for="release">Release:</label><br>
       <input type="text" id="release" name="release"><br>
       <label for="rating">Rating:</label><br>
@@ -35,6 +35,12 @@
   
   <script>
     const form = document.getElementById('new_game_form');
+    if (window.location.pathname.includes('/update')){
+      let tempParam = window.location.pathname.split('/');
+      form[0].value = decodeURIComponent(tempParam[tempParam.length - 1]);
+    }
+
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const url = await e;
@@ -52,9 +58,18 @@
           genres : parent[8].value.split(','),
           platform: parent[9].value.split(',')
         };
+      let actionURL;
+      let actionMethod;
 
-      fetch(url.srcElement.action, {
-        method: 'POST',
+      if (window.location.pathname.includes('/new_game')){
+        actionURL = '/game/post_game';
+        actionMethod = 'POST'
+      } else if (window.location.pathname.includes('/update')){
+        actionURL = window.location.pathname;
+        actionMethod = 'PUT'
+      }
+      fetch(actionURL, {
+        method: actionMethod,
         headers: {
           'Content-Type': 'application/json'
         },
