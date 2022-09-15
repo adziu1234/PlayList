@@ -4,13 +4,16 @@
   "description": "A library to hold your whole gaming library and manage your backlog",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=production webpack-dev-server --open --hot",
-    "build": "webpack --mode production",
-    "prod": "NODE_ENV=production node server/server.js"
+    "dev": "webpack serve",
+    "start": "node server/server.js",
+    "build": "webpack --mode production"
   },
   "keywords": [],
   "author": "Adrian Reczek",
   "license": "ISC",
+  "engines": {
+    "node": "16.16.0"
+  },
   "dependencies": {
     "css-loader": "^6.7.1",
     "express": "^4.18.1",
