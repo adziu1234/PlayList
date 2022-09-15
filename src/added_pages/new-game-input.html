@@ -5,16 +5,39 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Add A Game</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=IBM+Plex+Mono:wght@400;500;700&family=Paytone+One&family=Play:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(90deg, rgba(2,0,0.6, 1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%)
+    }
+    .formCard {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      top: 50px;
+      justify-content: center;
+      align-items: center;
+    }
+    form label {
+      color: white;
+      font-family: 'Play';
+    }
+    form {
+      margin: 0 auto;
+    }
+  </style>
 </head>
 <body>
-  <div>
+  <div class="formCard">
     <form id="new_game_form">
       <label for="title">Title:</label><br>
       <input type="text" id="title" name="title" val ="" required><br>
       <label for="release">Release:</label><br>
       <input type="text" id="release" name="release"><br>
       <label for="rating">Rating:</label><br>
-      <input type="range" id="rating" name="rating" min="1" max="10" required><br>
+      <input type="range" id="rating" name="rating" min="1" max="10" value="10" required><br>
       <label for="completion_time">Completion Time:</label><br>
       <input type="number" id="completion_time" name="completion_time"><br>
       <label for="completion_status">Completed:</label><br>
@@ -29,11 +52,17 @@
       <input type="text" id="genres" name="genres"><br>
       <label for="platform">Platforms:</label><br>
       <input type="text" id="platform" name="platform"><br>
-      <button type="submit">Add Game to Library</button>
+      <button type="submit">Add/Update Game</button>
     </form>
+
+    <div>
+      <button onClick="location.href = '/'">Take Me Back to The Library!</button>
+    </div>
   </div>
+
   
   <script>
+
     const form = document.getElementById('new_game_form');
     if (window.location.pathname.includes('/update')){
       let tempParam = window.location.pathname.split('/');
@@ -68,14 +97,14 @@
         actionURL = window.location.pathname;
         actionMethod = 'PUT'
       }
-      fetch(actionURL, {
+      const data = await fetch(actionURL, {
         method: actionMethod,
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(bodyToSend)
       }).then(data => data.json())
-      .then((data) => console.log(data));
+      .then(() => location.href = '/');
     })
 
 

@@ -16,7 +16,7 @@ const GameCard = (info) => {
 
   async function updater(e){
     const target = await e;
-    const titleToUpdate = target.target.parentNode.firstChild.innerText;
+    const titleToUpdate = title;
     window.location.href = '/game/update/' + titleToUpdate;
   }
 

@@ -3,7 +3,7 @@ const models = require('../models/models');
 const sortController = {};
 
 sortController.getCompleted = (req, res, next) => {
-  models.Game.find({completion_status: true}, (err, games) => {
+  models.Game.find({completion_status: false}, (err, games) => {
     if (err){
       return next({
         log: 'sortController.getCompleted ERROR',
