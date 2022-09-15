@@ -15,6 +15,17 @@ router.get('/completed', (req, res) => {
   res.status(200).sendFile(path.resolve(__dirname, '../../src/test.html'));
 });
 
+router.get('/switch', sortController.getSwitch, (req, res) => {
+  res.status(200).json(res.locals.switchGamesData);
+});
+
+router.get('/ps', sortController.getPS, (req, res) => {
+  res.status(200).json(res.locals.psGamesData);
+})
+
+router.get('/xbox', sortController.getXbox, (req, res) => {
+  res.status(200).json(res.locals.xboxGamesData);
+})
 
 
 module.exports = router;

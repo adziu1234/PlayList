@@ -108,6 +108,7 @@ body {
 .box div:nth-child(1){
   top: 12%; 
   left: 42%;
+  border: none;
   animation: animate 10s linear infinite;
 }
 
@@ -115,6 +116,7 @@ body {
   top: 70%; 
   left: 50%;
   border-radius: 50%;
+  border-color: red;
   animation: animate 7s linear infinite;
 }
 
@@ -148,6 +150,7 @@ svg patch{
 .box div:nth-child(6){
   top: 80%; 
   left: 70%;
+  border-color: rgb(228, 88, 158);
   animation: animate 12s linear infinite;
 }
 
@@ -209,7 +212,7 @@ navbar {
   }
   .addButton {
     position: relative;
-    left: 85px;
+    left: 230px;
   }
   .filters {
     float: right;
@@ -218,6 +221,19 @@ navbar {
     a {
       margin: 0 10px;
     }
+  }
+  .switchButton {
+    color:red;
+    text-shadow: -1px 1px 0 #fff,
+    1px 1px 0 #fff,
+   1px -1px 0 #fff,
+  -1px -1px 0 #fff;
+  }
+  .psButton {
+    color: blue;
+  }
+  .xboxButton {
+    color: green;
   }
 }
 

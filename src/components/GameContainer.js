@@ -8,18 +8,6 @@ class GameContainer extends Component {
     super(props);
     this.state = {
       games: [
-        {
-          title: 'Persona 5 Royal',
-          release: 'March 31, 2020',
-          rating: 5,
-          completion_time: 150,
-          completion_status: true,
-          publisher: 'Sega',
-          developer: 'Atlus',
-          art_link: 'https://images-na.ssl-images-amazon.com/images/I/81BgoNw%2BWuL._SL1500_.jpg',
-          genres: ['JRPG'],
-          platform: ['PlayStation 4']
-        }
       ],
       reloaded: false
     };
@@ -43,8 +31,38 @@ class GameContainer extends Component {
 
   render(){
     console.log(this.state);
-    if (window.location.pathname.includes('/sort') && this.state.reloaded === false){
+    if (window.location.pathname.includes('/sort/completed') && this.state.reloaded === false){
       fetch('/sort/completed_games')
+        .then((res) => res.json())
+        .then((games) => {
+          if (!Array.isArray(games)) games = [];
+          return this.setState({
+            games,
+            reloaded: !this.state.reloaded
+          });
+        });
+    } else if (window.location.pathname.includes('/sort/switch') && this.state.reloaded === false) {
+      fetch('/sort/switch')
+        .then((res) => res.json())
+        .then((games) => {
+          if (!Array.isArray(games)) games = [];
+          return this.setState({
+            games,
+            reloaded: !this.state.reloaded
+          });
+        });
+    } else if (window.location.pathname.includes('/sort/ps') && this.state.reloaded === false) {
+      fetch('/sort/ps')
+        .then((res) => res.json())
+        .then((games) => {
+          if (!Array.isArray(games)) games = [];
+          return this.setState({
+            games,
+            reloaded: !this.state.reloaded
+          });
+        });
+    } else if (window.location.pathname.includes('/sort/xbox') && this.state.reloaded === false) {
+      fetch('/sort/xbox')
         .then((res) => res.json())
         .then((games) => {
           if (!Array.isArray(games)) games = [];
