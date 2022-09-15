@@ -4,7 +4,7 @@
   "description": "A library to hold your whole gaming library and manage your backlog",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=production webpack-dev-server --open --hot",
+    "start": "NODE_ENV=production webpack -p",
     "build": "webpack --mode production",
     "prod": "NODE_ENV=production node server/server.js"
   },
