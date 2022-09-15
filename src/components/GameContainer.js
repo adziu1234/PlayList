@@ -81,7 +81,6 @@ class GameContainer extends Component {
     console.log(gameElems);
     return (
       <div className="gameContainer">
-        <h2>Game Library</h2>
         {gameElems}
       </div>
     );
