@@ -1,6 +1,6 @@
 {
   "name": "playlist",
-  "version": "0.8",
+  "version": "1.0",
   "description": "A library to hold your whole gaming library and manage your backlog",
   "main": "index.js",
   "scripts": {
