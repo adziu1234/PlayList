@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 import GameContainer from './GameContainer';
-import GameCard from './GameCard';
-import Test from './Test';
 
 class App extends Component {
 
