@@ -1,5 +1,4 @@
-import React, { Component, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from 'react';
 
 import GameCard from './GameCard';
 
@@ -25,7 +24,7 @@ class GameContainer extends Component {
           });
         });
     }
-    const keySequence = [];
+    /* const keySequence = [];
     let konamiString = '';
     const konamiCode = [
       'ArrowUp',
@@ -53,8 +52,7 @@ class GameContainer extends Component {
         const music = new Audio('../shh/nggyu.mp3');
         music.play();
         window.document.getElementById('container').style.backgroundImage = "url('../shh/never-gonna-give-you-up-clip.jpg')";
-      }
-    });
+      } */
   }
 
     
