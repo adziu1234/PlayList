@@ -58,7 +58,7 @@ class GameContainer extends Component {
     
 
   render(){
-    console.log(this.state);
+    //this logic sets state based on the button pushed and renders components based on fetched object
     if (window.location.pathname.includes('/sort/completed') && this.state.reloaded === false){
       fetch('/sort/completed_games')
         .then((res) => res.json())
