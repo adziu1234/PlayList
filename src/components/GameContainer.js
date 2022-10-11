@@ -112,20 +112,14 @@ class GameContainer extends Component {
     }
 
     const { games } = this.state;
-
-    const gameElems = games.map((game, i) => {
-      let releaseDate = new Date(game.release);
-      releaseDate = releaseDate.toDateString().split(' ').slice(1).join(' ');
-      game.release = releaseDate;
-
-      return (
+    const gameElems = [];
+    for (let i = 0; i < games.length; i++){
+      gameElems.push(
         <div className='gameCard'>
           <GameCard key={i} info={game} />
-        </div>
-      );
-    });
-
-    console.log(gameElems);
+        </div>);
+    };
+    
     return (
       <div className="gameContainer">
         {gameElems}
