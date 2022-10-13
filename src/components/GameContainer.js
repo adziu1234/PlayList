@@ -110,15 +110,15 @@ class GameContainer extends Component {
           });
         });
     }
-
+    //this creates an array of jsx elements corresponding to all of the game documents that were retrieved
     const { games } = this.state;
     const gameElems = [];
     for (let i = 0; i < games.length; i++){
       gameElems.push(
         <div className='gameCard'>
-          <GameCard key={i} info={game} />
+          <GameCard key={`gameCard${i}`} info={games[i]} />
         </div>);
-    };
+    }
     
     return (
       <div className="gameContainer">
