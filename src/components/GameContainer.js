@@ -55,8 +55,6 @@ class GameContainer extends Component {
       } */
   }
 
-    
-
   render(){
     //this logic sets state based on the button pushed and renders components based on fetched object
     if (window.location.pathname.includes('/sort/completed') && this.state.reloaded === false){
@@ -126,7 +124,6 @@ class GameContainer extends Component {
       </div>
     );
   }
-
 
 }
 
