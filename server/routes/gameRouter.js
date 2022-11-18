@@ -40,7 +40,4 @@ router.put('/update/:title', gameController.updateGame, (req, res) => {
   res.status(200).json(res.locals.updatedGame);
 });
 
-
-
-
 module.exports = router;
